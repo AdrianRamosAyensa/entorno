@@ -7,9 +7,22 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./sitios/web1:/var/www/html
+      - /home/alumno/Repositorio DAW/Repositorio-DAW:/var/www/html
     environment:
       - VIRTUAL_HOST=web1.com,www.web1.com
+    restart: always
+    networks:
+      - frontend
+  web2:
+    image: php:7.4-apache
+    container_name: web2
+    hostname: web2
+    ports:
+      - "81:80"
+    volumes:
+      - ./sitios/web2:/var/www/html
+    environment:
+      - VIRTUAL_HOST=web2.com,www.web2.com
     restart: always
     networks:
       - frontend
